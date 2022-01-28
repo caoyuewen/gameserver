@@ -1,0 +1,18 @@
+{
+  "port": "8888",
+  "mysql": {
+    "address": "127.0.0.1:3306",
+    "user": "test",
+    "password": "123456"
+  },
+  "mongo": {
+    "address": "127.0.0.1:3306",
+    "user": "test",
+    "password": "123456"
+  },
+  "redis": {
+    "address": "127.0.0.1:3306",
+    "user": "test",
+    "password": "123456"
+  }
+}

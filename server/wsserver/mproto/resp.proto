@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package mproto;
+option go_package = "/";
+
+// MSG_ID 200
+// 0.PONG
+message PONG {
+    int64 time = 1; // 当前时间戳 格式 秒(s) 1567668727760
+}
+
+// MSG_ID 201
+// 1.登录请求
+message RespLogin {
+    UserInfo  userInfo = 1;
+}
+
+// =================================  SERVER 主动推送异常指令 500 开始 ======================
+
+// SERVER PUSH : MSG_ID 500  // 服务器断开指令
+// 1.断开连接指令
+message CloseConn {
+    int32 code = 1; // 断开连接code  1: 心跳超时断开  2: 在其他地方登录  3: 认证失败断开
+    string msg = 2; // 断开msg
+}
+
+// SERVER PUSH : MSG_ID 501  // 服务器错误指令
+// 1.服务器错误指令
+message ErrMsg {
+    int32 msgId = 1; // 错误的指令Id 客户端发送的指令
+    string msg = 2; // 错误信息msg
+}
+
+// ============================================= 属性data =================================
+
+// 用户信息data
+message UserInfo {
+    int64  UserId = 1;
+    string NickName = 2;
+    double Coin = 3;
+    string  HeadImg = 4;
+}

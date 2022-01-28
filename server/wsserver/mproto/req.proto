@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package msg;
+option go_package ="/";
+
+// MSG_ID 100
+// PING
+message PING {
+    int64 time = 1; // 当前时间戳 格式 秒(s) 1567668727760
+}
+
+// MSG_ID 101
+// 1.登录请求
+message ReqLogin {
+    string userId = 1;
+    string userPassword = 2;
+    string token = 3;
+}
